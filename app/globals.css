@@ -8,8 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,9 +17,104 @@
     --foreground: #ededed;
   }
 }
+.nav-hover {
+  color: 282826;
+}
+.nav-hover:hover {
+  cursor: pointer;
+  color: #B6CD5E;
+  transition: all ease-in-out 50ms;
+}
+.cta-green {
+  background-color: #0A3937;
+  color: #B6CD5E;
+  transition: all ease-in-out 100ms;
+}
+.cta-green:hover {
+  background-color: #B6CD5E;
+  color: #0A3937;
+}
+.cta-lime {
+  background-color: #B6CD5E;
+  color: #000;
+  transition: all ease-in-out 100ms;
+}
+.cta-lime:hover {
+  background-color: #fff;
+  color: #0A3937;
+}
+.cta-white {
+  background-color: #fff;
+  color: #0A3937;
+  transition: all ease-in-out 100ms;
+}
+.cta-white:hover {
+  background-color: #B6CD5E;
+  color: #fff;
+}
+.mobile-nav {
+  transition: all ease-in-out 100ms;
+}
+.mobile-nav:hover {
+  background-color: rgba(214, 217, 211, 0.19);
+  color: #0A3937;
+}
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+.inter-light {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+.inter-medium {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.inter-medium-bold {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  font-style:normal;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+@theme inline {
+  --animate-scroll: scroll 20s linear infinite;
+}
+
+@theme inline {
+  --animate-scrollY: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+@keyframes scrollY {
+    from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-scrollY {
+  animation: scrollY 20s linear infinite;
 }
