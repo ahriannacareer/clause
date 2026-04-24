@@ -15,9 +15,9 @@ export default function Hero() {
     return (
         <div className="
             bg-[url(/images/clause-hero-bg-expanded.png)]
-            bg-cover 
+            bg-contain md:bg-cover
             bg-no-repeat 
-            bg-center
+            bg-top md:bg-center
 
 
             relative 
