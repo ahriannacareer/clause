@@ -5,6 +5,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { MdOutlineLogin } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const navigation = [
     {category: "solutions", subcategories: [
@@ -26,11 +27,22 @@ const navigation = [
 
 export default function Nav() {
     const [open, setOpen] = useState(false);
+    useEffect(() => {
+        if (open) {
+            document.body.classList.add("overflow-hidden");
+        } else {
+            document.body.classList.remove("overflow-hidden");
+        }
+
+        return () => {
+            document.body.classList.remove("overflow-hidden");
+        };
+        }, [open]);
 
     return (
-        <header className="sticky top-0 z-50 mx-auto w-full backdrop-blur-md">
+        <header className="sticky top-0 z-50 mx-auto w-full backdrop-blur-md ">
             <div className="">
-                <nav className="flex flex-row justify-between text-[#282826] w-full z-1 px-15 py-5">
+                <nav className="flex flex-row justify-between text-[#282826] w-full z-1 px-5 lg:px-15 py-5 ">
                     <div className="flex flex-nowrap items-start ">
                         <div className="flex flex-row flex-nowrap items-start hidden w-auto lg:flex">
                             <Image
@@ -109,8 +121,8 @@ export default function Nav() {
                     </div>
 
                     {/* Mobile Navigation */}
-                   <div className="w-full lg:hidden flex flex-row justify-between ">
-                     <div className="flex flex-nowrap items-start">
+                   <div className="w-full lg:hidden flex flex-row justify-between">
+                     <div className="flex flex-nowrap items-start ">
                             <Image
                                 className="rounded-lg"
                                 src="/images/clause-logo-bg-removal-rounded.png"
@@ -133,18 +145,40 @@ export default function Nav() {
                     {/* Mobile dropdown menu */}
                     {open && (
                         <nav className={`
-                            bg-[#F6F6F4] 
-                            fixed top-20 left-0
-                            w-full 
-                            min-h-screen 
-                            z-50 
-                            px-15 py-4 
-                            pt-10
+                            bg-[#F6F6F4]
+                            fixed top-0 left-0
+                            w-full
+                            h-[calc(100dvh-5rem)]
+                            overflow-y-auto
+                            overscroll-contain
+                            z-50
+                            px-15
+                            py-10 pb-20
                             lg:hidden
-                            ${ open ? "animate__animated animate__slideInRight" : "animate__animated  animate__slideOutRight"}`
-                        }
+                            ${open ? "animate__animated animate__slideInRight" : ""}
+                        `}
                         >
-                            
+                            <div className="flex flex-row flex-nowrap justify-between mb-10">
+                                <div className="flex flex-row flex-nowrap w-auto lg:flex">
+                                    <Image
+                                        className="rounded-lg" 
+                                        src="/images/clause-logo-bg-removal-rounded.png"
+                                        alt="Brand logo"
+                                        width={40}
+                                        height={20}
+                                        priority
+                                    />
+                                    <h2 className="text-[#0A3937] py-2 px-2 text-xl inter-medium-bold tracking-wide self-start">Clause</h2>
+                                </div>
+                                <button
+                                    type="button"
+                                    className="text-black lg:hidden cursor-pointer "
+                                    onClick={() => setOpen(!open)}
+                                    aria-label="Toggle navigation menu"
+                                    >
+                                    <span className="text-md">Close</span>
+                                </button>
+                            </div>
                             <div className={`flex flex-col gap-5 mb-5 items-start lg:hidden mt-2
                                 ${ open ? "animate__animated animate__slideInRight" : ""}
                                 `}>

@@ -62,22 +62,27 @@ export default function Footer() {
                     "> Clause</span> capabilities</h1>
 
                 <div className="
-                    flex flex-row flex-wrap lg:flex-nowrap
-                    w-full
+                    flex flex-col lg:flex-row flex-wrap lg:flex-nowrap
                     justify-center lg:justify-end
                     pt-5 lg:pt-8
+                    gap-5
+                    w-3/4 max-w-[200px] lg:w-full
+                    mx-auto lg:mx-0
                     ">
                     <Link
                         href=""
                         className="
+                            w-full lg:w-auto
+                            text-center
                             px-5 py-3 
                             cta-white
                             font-normal
                             rounded-xl
                             shadow-lg
                             inter-medium
-                            mr-4
+                            lg:mr-4
                             self-start
+                            mx-auto lg:mx-0
                             ">
                             Get a Demo   
                         </Link>
@@ -85,6 +90,8 @@ export default function Footer() {
                     <Link
                         href=""
                         className="
+                            w-full lg:w-auto
+                            text-center
                             px-5 py-3 
                             cta-lime
                             font-normal
@@ -92,6 +99,7 @@ export default function Footer() {
                             shadow-lg
                             inter-medium
                             self-start
+                            mx-auto lg:mx-0
                         ">
                             Start for Free    
                         </Link>  
